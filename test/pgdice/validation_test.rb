@@ -40,6 +40,17 @@ class ValidationTest < Minitest::Test
     stupid_codeclimate(only: :future)
   end
 
+  def test_only_past_works_on_string_args
+    assert_past_tables_error do
+      @fake_validation.assert_tables(table_name,
+                                     'past' => 2,
+                                     'future' => 2,
+                                     'only' => 'past')
+    end
+    assert @fake_validation.assert_tables(table_name, 'future' => 2, 'only' => 'past')
+    assert @fake_validation.assert_tables(table_name, 'only' => 'past')
+  end
+
   def test_assert_tables_throws
     PgDice.partition_helper.partition_table(table_name, future: 0, past: 0)
 

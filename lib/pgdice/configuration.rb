@@ -26,7 +26,8 @@ module PgDice
                 :dry_run,
                 :batch_size,
                 :pg_connection,
-                :config_file_loader
+                :config_file_loader,
+                :param_sanitizer
 
     attr_accessor :config_file
 
@@ -115,6 +116,10 @@ module PgDice
       @database_connection_factory.call
     end
 
+    def param_sanitizer
+      @param_sanitizer_factory.call
+    end
+
     def deep_clone
       PgDice::Configuration.new(self)
     end
@@ -130,6 +135,7 @@ module PgDice
       @partition_helper_factory = PgDice::PartitionHelperFactory.new(self)
       @validation_factory = PgDice::ValidationFactory.new(self)
       @database_connection_factory = PgDice::DatabaseConnectionFactory.new(self)
+      @param_sanitizer_factory = PgDice::ParamSanitizerFactory.new(self)
     end
   end
 end
