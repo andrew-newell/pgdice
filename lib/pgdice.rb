@@ -10,6 +10,9 @@ require 'forwardable'
 require 'pgdice/version'
 require 'pgdice/error'
 
+require 'pgdice/param_sanitizer'
+require 'pgdice/param_sanitizer_factory'
+
 require 'pgdice/table'
 require 'pgdice/log_helper'
 

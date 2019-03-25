@@ -86,6 +86,10 @@ class ConfigurationTest < Minitest::Test
     assert_equal 1, call_count, 'Logger factory should be called to initialize logger'
   end
 
+  def test_params_transformer
+    assert true
+  end
+
   private
 
   def assert_not_configured(&block)

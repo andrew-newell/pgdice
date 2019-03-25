@@ -49,7 +49,7 @@ module PgDice
 
     def unswap(table_name)
       unswap_results = pg_slice_manager.unswap(table_name: table_name)
-      logger.warn { "Unswapping #{table_name} was not successful. " } unless unswap_results
+      logger.warn { "Unswapping #{table_name} was not successful." } unless unswap_results
       unswap_results
     end
 
