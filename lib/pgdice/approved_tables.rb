@@ -55,7 +55,7 @@ module PgDice
     private
 
     def check_string_args(key)
-      raise ArgumentError, 'key must be a String' unless key.is_a?(String)
+      raise ArgumentError, "approved_tables key must be a String. Found: #{key.class}" unless key.is_a?(String)
 
       key
     end
