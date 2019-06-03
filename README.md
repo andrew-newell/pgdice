@@ -292,7 +292,7 @@ This example would use `60` instead of the configured value of `90` from the `co
   password = config[Rails.env]["password"]
 
   "postgres://#{username}:#{password}@#{host}/#{database}"
-end
+ end
 ```
 
 1. I'm seeing off-by-one errors for my `assert_tables` calls?
